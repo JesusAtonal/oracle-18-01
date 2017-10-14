@@ -21,12 +21,12 @@ end;
 select * from menores_edad;
 select count(*) from menores_edad;
 
-create or replace procedure ACTUALIZAR_EDAD(AGE IN INTEGER,ID IN integer)AS
-BEGIN
-IF AGE <18 THEN 
-RAISE_APLICATION_ERROR(-2000,'NO ACEPTO EDADES MENORES A 18');
-ELSE
-UPDATE menores_edad SET EDAD=AGE WHERE id_menores=ID;
-END IF;
-END;
+create or replace procedure actualizar_edad(age in integer,id in integer)as
+begin
+if age < 18 then 
+RAISE_APPLICATION_ERROR(-20000, 'No acepto edades menores a 18');
+else
+update menores_edad set edad=age where id_menores=id;
+end if;
+end;
 /
